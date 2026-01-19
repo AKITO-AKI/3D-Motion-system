@@ -56,11 +56,13 @@ class MotionViewer(QtWidgets.QMainWindow):
         for pid, p in self.axis_presets.items():
             label = str(p.get("label") or pid)
             self.cmb_axis.addItem(label, pid)
-        # Prefer Axis template by default if available
-        if "axis_template" in self.axis_presets:
-            idx = self.cmb_axis.findData("axis_template")
-            if idx >= 0:
-                self.cmb_axis.setCurrentIndex(idx)
+        # Prefer Axis Studio fixed preset by default for this project.
+        for preferred in ("axis_studio", "axis_template", "yup_to_zup"):
+            if preferred in self.axis_presets:
+                idx = self.cmb_axis.findData(preferred)
+                if idx >= 0:
+                    self.cmb_axis.setCurrentIndex(idx)
+                    break
 
         self.chk_fx = QtWidgets.QCheckBox("Flip X")
         self.chk_fy = QtWidgets.QCheckBox("Flip Y")
@@ -70,6 +72,10 @@ class MotionViewer(QtWidgets.QMainWindow):
         self.cmb_fps.addItem("Keep FPS", None)
         self.cmb_fps.addItem("30 FPS", 30.0)
         self.cmb_fps.addItem("60 FPS", 60.0)
+        # Default to 30fps for stable downstream features/metrics.
+        idx30 = self.cmb_fps.findData(30.0)
+        if idx30 >= 0:
+            self.cmb_fps.setCurrentIndex(idx30)
 
         self.cmb_scale = QtWidgets.QComboBox()
         self.cmb_scale.addItem("Scale: Auto", "auto")

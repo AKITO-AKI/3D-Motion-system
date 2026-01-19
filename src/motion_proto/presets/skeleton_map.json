@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "Standard joint set and mapping hints. M2 uses this only for UI/debug; M3 will use it for feature extraction. Axis Studio mapping will be frozen once a real BVH sample is provided.",
+  "note": "Standard joint set and mapping hints. M2 uses this only for UI/debug; M3 will use it for feature extraction. For this prototype we assume Axis Studio exports BVH using common joint names (Hips/Spine/LeftUpLeg...). If your Axis export differs, update axis_studio_defaults or mapping_hints.",
   "standard_joints": [
     {"name": "Hips", "parent": null},
     {"name": "Spine", "parent": "Hips"},
@@ -54,5 +54,39 @@
     "RightLeg": ["RightLeg", "RLeg", "LowerLeg_R", "RightShin"],
     "RightFoot": ["RightFoot", "RFoot", "Foot_R"],
     "RightToeBase": ["RightToeBase", "RToe", "Toe_R", "RightToe" ]
+  },
+  "axis_studio_defaults": {
+    "assumption": "Axis Studio uses the standard BVH-style joint names. These are the preferred matches for feature extraction and metrics.",
+    "preferred_names": {
+      "Hips": "Hips",
+      "Spine": "Spine",
+      "Spine1": "Spine1",
+      "Neck": "Neck",
+      "Head": "Head",
+
+      "LeftShoulder": "LeftShoulder",
+      "LeftArm": "LeftArm",
+      "LeftForeArm": "LeftForeArm",
+      "LeftHand": "LeftHand",
+
+      "RightShoulder": "RightShoulder",
+      "RightArm": "RightArm",
+      "RightForeArm": "RightForeArm",
+      "RightHand": "RightHand",
+
+      "LeftUpLeg": "LeftUpLeg",
+      "LeftLeg": "LeftLeg",
+      "LeftFoot": "LeftFoot",
+      "LeftToeBase": "LeftToeBase",
+
+      "RightUpLeg": "RightUpLeg",
+      "RightLeg": "RightLeg",
+      "RightFoot": "RightFoot",
+      "RightToeBase": "RightToeBase"
+    },
+    "contact_joints": {
+      "left": ["LeftToeBase", "LeftFoot"],
+      "right": ["RightToeBase", "RightFoot"]
+    }
   }
 }

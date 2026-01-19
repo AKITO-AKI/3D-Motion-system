@@ -9,10 +9,10 @@
       "description": "No axis transform."
     },
     {
-      "id": "axis_template",
-      "label": "Axis Studio (template)",
-      "matrix": [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
-      "description": "Template for Axis Studio BVH. Start here, then use Flip toggles if the character faces the wrong way or appears mirrored. Once we receive a real Axis BVH, this preset will be frozen to the correct matrix."
+      "id": "axis_studio",
+      "label": "Axis Studio (fixed)",
+      "matrix": [[1, 0, 0], [0, 0, -1], [0, 1, 0]],
+      "description": "Fixed Axis Studio assumption for this prototype: source is Y-up, viewer is Z-up. We apply a +90deg rotation around X (Y-up -> Z-up). If the character is mirrored or faces the wrong way, use Flip toggles."
     },
     {
       "id": "zup_to_yup",
