@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "note": "Standard joint set and mapping hints. M2 uses this only for UI/debug; M3 will use it for feature extraction. Axis Studio mapping will be frozen once a real BVH sample is provided.",
+  "standard_joints": [
+    {"name": "Hips", "parent": null},
+    {"name": "Spine", "parent": "Hips"},
+    {"name": "Spine1", "parent": "Spine"},
+    {"name": "Neck", "parent": "Spine1"},
+    {"name": "Head", "parent": "Neck"},
+
+    {"name": "LeftShoulder", "parent": "Spine1"},
+    {"name": "LeftArm", "parent": "LeftShoulder"},
+    {"name": "LeftForeArm", "parent": "LeftArm"},
+    {"name": "LeftHand", "parent": "LeftForeArm"},
+
+    {"name": "RightShoulder", "parent": "Spine1"},
+    {"name": "RightArm", "parent": "RightShoulder"},
+    {"name": "RightForeArm", "parent": "RightArm"},
+    {"name": "RightHand", "parent": "RightForeArm"},
+
+    {"name": "LeftUpLeg", "parent": "Hips"},
+    {"name": "LeftLeg", "parent": "LeftUpLeg"},
+    {"name": "LeftFoot", "parent": "LeftLeg"},
+    {"name": "LeftToeBase", "parent": "LeftFoot"},
+
+    {"name": "RightUpLeg", "parent": "Hips"},
+    {"name": "RightLeg", "parent": "RightUpLeg"},
+    {"name": "RightFoot", "parent": "RightLeg"},
+    {"name": "RightToeBase", "parent": "RightFoot"}
+  ],
+  "mapping_hints": {
+    "Hips": ["Hips", "Hip", "Pelvis", "Root", "Hips"],
+    "Spine": ["Spine", "Spine0", "LowerBack"],
+    "Spine1": ["Spine1", "Spine2", "UpperBack", "Chest"],
+    "Neck": ["Neck", "Neck1"],
+    "Head": ["Head"],
+
+    "LeftShoulder": ["LeftShoulder", "LShoulder", "Shoulder_L"],
+    "LeftArm": ["LeftArm", "LUpperArm", "UpperArm_L"],
+    "LeftForeArm": ["LeftForeArm", "LForeArm", "LowerArm_L"],
+    "LeftHand": ["LeftHand", "LHand", "Hand_L"],
+
+    "RightShoulder": ["RightShoulder", "RShoulder", "Shoulder_R"],
+    "RightArm": ["RightArm", "RUpperArm", "UpperArm_R"],
+    "RightForeArm": ["RightForeArm", "RForeArm", "LowerArm_R"],
+    "RightHand": ["RightHand", "RHand", "Hand_R"],
+
+    "LeftUpLeg": ["LeftUpLeg", "LUpLeg", "UpperLeg_L", "LeftThigh"],
+    "LeftLeg": ["LeftLeg", "LLeg", "LowerLeg_L", "LeftShin"],
+    "LeftFoot": ["LeftFoot", "LFoot", "Foot_L"],
+    "LeftToeBase": ["LeftToeBase", "LToe", "Toe_L", "LeftToe"],
+
+    "RightUpLeg": ["RightUpLeg", "RUpLeg", "UpperLeg_R", "RightThigh"],
+    "RightLeg": ["RightLeg", "RLeg", "LowerLeg_R", "RightShin"],
+    "RightFoot": ["RightFoot", "RFoot", "Foot_R"],
+    "RightToeBase": ["RightToeBase", "RToe", "Toe_R", "RightToe" ]
+  }
+}

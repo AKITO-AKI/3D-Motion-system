@@ -27,5 +27,14 @@ python -m motion_proto
 
 ## Known limitations (intentional for prototype)
 - Viewer is a simple stick figure (no mesh)
-- No axis/scale normalization yet (Axis Studio preset will be added after you provide a sample BVH)
+- Axis/scale/FPS preprocessing is implemented as a lightweight, deterministic layer (M2). Axis Studio preset is currently a **template** and will be frozen once you provide a real Axis BVH.
 - Assumes frame data can be reshaped into (Frames, total_channels). If a BVH is malformed, it raises a clear error.
+
+## M2 (Preprocess) controls
+After loading a BVH you can adjust:
+- **Axis preset** (None / Axis Studio template / common swaps)
+- **Flip X/Y/Z** (to fix mirroring/handedness)
+- **FPS resampling** (keep / 30 / 60)
+- **Scale** (Auto / None / Factor)
+
+These transforms are applied to world-space joint positions (safe for early-stage) and are designed to stabilize the next stages (classification + naturalness metrics).

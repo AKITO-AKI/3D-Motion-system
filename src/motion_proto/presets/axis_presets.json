@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "note": "Each 3x3 matrix maps source coordinates to viewer coordinates (X,Y,Z). It is applied to world-space points as p' = M * p (implemented as pts @ M^T). Use the Flip toggles in the UI to correct handedness if needed.",
+  "presets": [
+    {
+      "id": "none",
+      "label": "None (no axis change)",
+      "matrix": [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
+      "description": "No axis transform."
+    },
+    {
+      "id": "axis_template",
+      "label": "Axis Studio (template)",
+      "matrix": [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
+      "description": "Template for Axis Studio BVH. Start here, then use Flip toggles if the character faces the wrong way or appears mirrored. Once we receive a real Axis BVH, this preset will be frozen to the correct matrix."
+    },
+    {
+      "id": "zup_to_yup",
+      "label": "Z-up to Y-up (rotate -90deg around X)",
+      "matrix": [[1, 0, 0], [0, 0, 1], [0, -1, 0]],
+      "description": "Common conversion when source uses Z as up-axis."
+    },
+    {
+      "id": "yup_to_zup",
+      "label": "Y-up to Z-up (rotate +90deg around X)",
+      "matrix": [[1, 0, 0], [0, 0, -1], [0, 1, 0]],
+      "description": "Inverse of Z-up to Y-up."
+    },
+    {
+      "id": "swap_yz",
+      "label": "Swap Y and Z",
+      "matrix": [[1, 0, 0], [0, 0, 1], [0, 1, 0]],
+      "description": "Simple axis swap. May require a flip to keep a right-handed system."
+    },
+    {
+      "id": "swap_xz",
+      "label": "Swap X and Z",
+      "matrix": [[0, 0, 1], [0, 1, 0], [1, 0, 0]],
+      "description": "Simple axis swap. May require a flip to keep a right-handed system."
+    },
+    {
+      "id": "swap_xy",
+      "label": "Swap X and Y",
+      "matrix": [[0, 1, 0], [1, 0, 0], [0, 0, 1]],
+      "description": "Simple axis swap. May require a flip to keep a right-handed system."
+    }
+  ]
+}
